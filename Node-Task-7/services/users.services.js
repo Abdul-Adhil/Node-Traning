@@ -3,6 +3,7 @@ const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
 require("dotenv").config();
 const SECRET_KEY = process.env.SECRET_KEY;
+const JWT_EXPIRY = process.env.JWT_EXPIRY;
 
 const register = async (userData) => {
   // Get user input
@@ -46,7 +47,7 @@ const login = async (userData) => {
       (await bcrypt.compare(password, checkUserExist[0].password))
     ) {
       const token = jwt.sign({ username: username }, SECRET_KEY, {
-        expiresIn: "30m",
+        expiresIn: JWT_EXPIRY,
       });
 
       return {

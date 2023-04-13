@@ -21,13 +21,9 @@ app.get("/", (req, res) => {
   res.send("Welcome To Listify");
 });
 
-// app.listen(process.env.PORT, () => {
-//   logger.info("Server is Running on " + process.env.PORT);
-//   console.log("Server is Running on " + process.env.PORT);
-// });
-
-// http://localhost:4000/tasks?sort=priority
-
-// http://localhost:4000/tasks?title=games3&priority=medium
+app.listen(process.env.PORT, () => {
+  logger.info("Server is Running on " + process.env.PORT);
+  console.log("Server is Running on " + process.env.PORT);
+});
 
 module.exports = app;

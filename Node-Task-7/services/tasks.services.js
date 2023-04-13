@@ -40,6 +40,9 @@ const addTask = (username, taskData) => {
 const updateTask = (username, id, bodyData) => {
   const taskData = JSON.parse(data.readFile(username));
   const findTask = taskData.findIndex((task) => task.id === id);
+  if(findTask===-1){
+    return "No such task available"
+  }
   let targetTask = taskData[findTask];
   for (const key in bodyData) {
     targetTask[key] = bodyData[key];

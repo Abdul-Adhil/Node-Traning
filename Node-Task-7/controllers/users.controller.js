@@ -6,7 +6,7 @@ const register = async (req, res) => {
   try {
     const { username, password } = req.body;
     if (!(username && password)) {
-      res.status(400).json({ message: "Username and Password is required" });
+      responce.registerResponse(res, 400, "Username and Password is required");
     }
 
     let responceMsg = await userServices.register(req.body);
@@ -22,11 +22,10 @@ const register = async (req, res) => {
 };
 
 const login = async (req, res) => {
-  //   console.log(req.headers["authorization"]);
   try {
     const { username, password } = req.body;
     if (!(username && password)) {
-      res.status(400).json({ message: "Username and Password is required" });
+      responce.registerResponse(res, 400, "Username and Password is required");
     }
 
     let responceMsg = await userServices.login(req.body);
